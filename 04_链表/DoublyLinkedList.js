@@ -34,10 +34,10 @@ exports.LinkedList = class LinkedList extends LinkedList {
     this.count++
   }
 
-  // - getElementAt(index):(继承) 返回链表特定位置的元素，如果不存在返回undefined
+  // - getElementAt(index):(可以直接继承，也可以重写) 返回链表特定位置的元素，如果不存在返回undefined
   getElementAt(index) {
     if (index >= 0 && index < this.count) {
-      if(index > this.count / 2){
+      if(index > this.count / 2){ //双向链表可以从尾部开始搜索元素，能增加一些性能
         let current = this.tail
         for (let i = this.count-1; i > index && current != null; i--) {
           current = current.prev
